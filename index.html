@@ -6,181 +6,387 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Hitman 3 Menu</title>
 	<style>
-	body {
-		margin: 0;
-		padding: 0;
-		font-family: sans-serif;
-		color: white;
-	}
 
-	.cover {
-		position: absolute;
-		/* background-image: url("test1.jpg"); */
-		background-image: url("hitman-2-2018-video-game-h6-3840x2400.jpg");
-		background-size: 150%;
-		background-position: top center;
-		top: 0;
-		left: 0;
-		width: 100vw;
-		height: 100vh;
-		overflow: hidden;
-	}
+:root {
+	--menu-item-width: 18.2vw;
+	--page-padding-left: 4.2vw;
+}
 
-	.top {
-		height: 8.3vh;
-	}
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: sans-serif;
+	overflow: hidden;
+	background-color: black;
+	color: white;
+}
 
-	.menu {
-		height: 6vh;
-		padding-left: 4.2vw;
-		background-color: black;
-		opacity: 0.8;
-		overflow: hidden;
-	}
+.cover {
+	position: absolute;
+	/* background-image: url("test5.jpg");
+	background-size: 100%; */
+	background-image: url("./rpXkND.jpg");
+	background-size: cover;
+	background-position: top center;
+	opacity: 0.3;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	z-index: -1;
+}
 
-	.menu > div {
-		display: inline-flex;
-		align-items: center;
-		text-transform: uppercase;
-		font-size: 2vh;
-		font-weight: bold;
-		width: 18.2vw;
-	}
+.top {
+	display: flex;
+	height: 8.3vh;
+	align-items: flex-end;
+	padding-left: var(--page-padding-left);
+	padding-bottom: 1vh;
+	overflow: hidden;
+}
 
-	.menu > div > .icon {
-		height: 2vh;
-		width: 2vh;
-		padding-left: 1.25vw;
-		padding-top: 1.1vw;
-		padding-bottom: 1.1vw;
-		padding-right: 1vw;
-	}
+.top > div {
+	display: inline-flex;
+	flex-shrink: 0;
+	align-items: center;
+	text-transform: uppercase;
+	font-size: 1rem;
+	width: var(--menu-item-width);
+}
 
-	.active {
-		background-color: red;
-	}
+.menu {
+	display: flex;
+	height: 6vh;
+	align-items: stretch;
+	padding-left: var(--page-padding-left);
+	background-color: rgba(0, 0, 0, 0.4);
+	overflow: hidden;
+}
 
-	.content {
-		height: 76vh;
-		padding-left: 4.2vw;
-		/* background-color: blue;
-		opacity: 0.5; */
-	}
+.menu > div {
+	display: inline-flex;
+	flex-shrink: 0;
+	align-items: center;
+	text-transform: uppercase;
+	font-size: 2vh;
+	font-weight: bold;
+	width: var(--menu-item-width);
+}
 
-	.footer {
-		height: 10vh;
-		padding-left: 4.2vw;
-		/* background-color: green;
-		opacity: 0.5; */
-	}
+.menu-icon {
+	height: 2vh;
+	width: 2vh;
+	padding: .2vw;
+	margin-left: 1.05vw;
+	margin-top: .9vw;
+	margin-bottom: .9vw;
+	margin-right: 1vw;
+	border: 2px solid white;
+	border-radius: .2rem;
+}
 
-	.key {
-		border-radius: .2rem;
-		padding: 0.2rem;
-		background-color: darkgray;
-	}
+.menu-icon.fill {
+	display: none;
+}
+
+.active {
+	background-color: red;
+}
+
+.active .menu-icon {
+	display: none;
+}
+
+.active .fill {
+	display: block;
+}
+
+.content {
+	height: 74vh;
+	padding-left: 4.2vw;
+	/* background-color: blue;
+	opacity: 0.5; */
+}
+
+.footer {
+	height: 10vh;
+	padding-left: 4.2vw;
+	background-color: green;
+	opacity: 0.5;
+}
+
+#hidden {
+	display: none;
+}
+
+.key {
+	border-radius: .3rem;
+	padding: .2rem;
+	background-color: darkgray;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.page_button {
+	display: flex;
+	font-size: 1rem;
+	font-weight: bold;
+	align-items: center;
+}
+
+.page_button > .icon {
+	width: 2rem;
+	height: 2rem;
+	margin-left: 1rem;
+	margin-right: 1rem;
+}
+
+.page_button > .key {
+	color: black;
+}
 
 	</style>
 </head>
 <body>
-	<div class="cover">
+	<div class="cover"></div>
 
-		<div class="top"></div>
-
-		<div class="menu">
-			<div id="featured">
-				<svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="currentColor" viewBox="0 0 16 16">
-					<path d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A.5.5 0 0 1 10.5 16h-5a.5.5 0 0 1-.354-.854l1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.382a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.428-1.849Zm.894.448C7.111 2.02 7 2.569 7 3v4a.5.5 0 0 1-.276.447l-5.448 2.724a.5.5 0 0 0-.276.447v.792l5.418-.903a.5.5 0 0 1 .575.41l.5 3a.5.5 0 0 1-.14.437L6.708 15h2.586l-.647-.646a.5.5 0 0 1-.14-.436l.5-3a.5.5 0 0 1 .576-.411L15 11.41v-.792a.5.5 0 0 0-.276-.447L9.276 7.447A.5.5 0 0 1 9 7V3c0-.432-.11-.979-.322-1.401C8.458 1.159 8.213 1 8 1c-.213 0-.458.158-.678.599Z"/>
-				</svg>
-				<span>Featured</span>
-			</div>
-			<div id="live">
-				<svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="currentColor" viewBox="0 0 16 16">
-					<path d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A.5.5 0 0 1 10.5 16h-5a.5.5 0 0 1-.354-.854l1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.382a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.428-1.849Zm.894.448C7.111 2.02 7 2.569 7 3v4a.5.5 0 0 1-.276.447l-5.448 2.724a.5.5 0 0 0-.276.447v.792l5.418-.903a.5.5 0 0 1 .575.41l.5 3a.5.5 0 0 1-.14.437L6.708 15h2.586l-.647-.646a.5.5 0 0 1-.14-.436l.5-3a.5.5 0 0 1 .576-.411L15 11.41v-.792a.5.5 0 0 0-.276-.447L9.276 7.447A.5.5 0 0 1 9 7V3c0-.432-.11-.979-.322-1.401C8.458 1.159 8.213 1 8 1c-.213 0-.458.158-.678.599Z"/>
-				</svg>
-				<span>Live</span>
-			</div>
-			<div id="destinations">
-				<svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="currentColor" viewBox="0 0 16 16">
-					<path d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A.5.5 0 0 1 10.5 16h-5a.5.5 0 0 1-.354-.854l1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.382a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.428-1.849Zm.894.448C7.111 2.02 7 2.569 7 3v4a.5.5 0 0 1-.276.447l-5.448 2.724a.5.5 0 0 0-.276.447v.792l5.418-.903a.5.5 0 0 1 .575.41l.5 3a.5.5 0 0 1-.14.437L6.708 15h2.586l-.647-.646a.5.5 0 0 1-.14-.436l.5-3a.5.5 0 0 1 .576-.411L15 11.41v-.792a.5.5 0 0 0-.276-.447L9.276 7.447A.5.5 0 0 1 9 7V3c0-.432-.11-.979-.322-1.401C8.458 1.159 8.213 1 8 1c-.213 0-.458.158-.678.599Z"/>
-				</svg>
-				<span>Destinations</span>
-			</div>
-			<div id="campaigns">
-				<svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="currentColor" viewBox="0 0 16 16">
-					<path d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A.5.5 0 0 1 10.5 16h-5a.5.5 0 0 1-.354-.854l1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.382a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.428-1.849Zm.894.448C7.111 2.02 7 2.569 7 3v4a.5.5 0 0 1-.276.447l-5.448 2.724a.5.5 0 0 0-.276.447v.792l5.418-.903a.5.5 0 0 1 .575.41l.5 3a.5.5 0 0 1-.14.437L6.708 15h2.586l-.647-.646a.5.5 0 0 1-.14-.436l.5-3a.5.5 0 0 1 .576-.411L15 11.41v-.792a.5.5 0 0 0-.276-.447L9.276 7.447A.5.5 0 0 1 9 7V3c0-.432-.11-.979-.322-1.401C8.458 1.159 8.213 1 8 1c-.213 0-.458.158-.678.599Z"/>
-				</svg>
-				<span>Campaigns</span>
-			</div>
-			<div id="game-modes">
-				<svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="currentColor" viewBox="0 0 16 16">
-					<path d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A.5.5 0 0 1 10.5 16h-5a.5.5 0 0 1-.354-.854l1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.382a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.428-1.849Zm.894.448C7.111 2.02 7 2.569 7 3v4a.5.5 0 0 1-.276.447l-5.448 2.724a.5.5 0 0 0-.276.447v.792l5.418-.903a.5.5 0 0 1 .575.41l.5 3a.5.5 0 0 1-.14.437L6.708 15h2.586l-.647-.646a.5.5 0 0 1-.14-.436l.5-3a.5.5 0 0 1 .576-.411L15 11.41v-.792a.5.5 0 0 0-.276-.447L9.276 7.447A.5.5 0 0 1 9 7V3c0-.432-.11-.979-.322-1.401C8.458 1.159 8.213 1 8 1c-.213 0-.458.158-.678.599Z"/>
-				</svg>
-				<span>Game Modes</span>
-			</div>
-			<div id="career">
-				<svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="currentColor" viewBox="0 0 16 16">
-					<path d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A.5.5 0 0 1 10.5 16h-5a.5.5 0 0 1-.354-.854l1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.382a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.428-1.849Zm.894.448C7.111 2.02 7 2.569 7 3v4a.5.5 0 0 1-.276.447l-5.448 2.724a.5.5 0 0 0-.276.447v.792l5.418-.903a.5.5 0 0 1 .575.41l.5 3a.5.5 0 0 1-.14.437L6.708 15h2.586l-.647-.646a.5.5 0 0 1-.14-.436l.5-3a.5.5 0 0 1 .576-.411L15 11.41v-.792a.5.5 0 0 0-.276-.447L9.276 7.447A.5.5 0 0 1 9 7V3c0-.432-.11-.979-.322-1.401C8.458 1.159 8.213 1 8 1c-.213 0-.458.158-.678.599Z"/>
-				</svg>
-				<span>Career</span>
-			</div>
-			<div id="store">
-				<svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="currentColor" viewBox="0 0 16 16">
-					<path d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A.5.5 0 0 1 10.5 16h-5a.5.5 0 0 1-.354-.854l1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.382a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.428-1.849Zm.894.448C7.111 2.02 7 2.569 7 3v4a.5.5 0 0 1-.276.447l-5.448 2.724a.5.5 0 0 0-.276.447v.792l5.418-.903a.5.5 0 0 1 .575.41l.5 3a.5.5 0 0 1-.14.437L6.708 15h2.586l-.647-.646a.5.5 0 0 1-.14-.436l.5-3a.5.5 0 0 1 .576-.411L15 11.41v-.792a.5.5 0 0 0-.276-.447L9.276 7.447A.5.5 0 0 1 9 7V3c0-.432-.11-.979-.322-1.401C8.458 1.159 8.213 1 8 1c-.213 0-.458.158-.678.599Z"/>
-				</svg>
-				<span>Store</span>
-			</div>
-		</div>
-
-		<div class="content">
-
-		</div>
-
-		<div class="footer">
-			<div class="keys"><span class="key">ENTER</span> SELECT </div>
-			<div class="mid"></div>
-			<div class="login"></div>
-		</div>
-
+	<div class="top">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
 	</div>
-	<script>
+
+	<div class="menu">
+		<div id="featured-menu">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="menu-icon" viewBox="0 0 16 16">
+				<path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="menu-icon fill" viewBox="0 0 16 16">
+				<path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+			</svg>
+			<span>Featured</span>
+		</div>
+		<div id="live-menu">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="menu-icon" viewBox="0 0 16 16">
+				<path d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+				<path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="menu-icon fill" viewBox="0 0 16 16">
+				<path d="M4 .5a.5.5 0 0 0-1 0V1H2a2 2 0 0 0-2 2v1h16V3a2 2 0 0 0-2-2h-1V.5a.5.5 0 0 0-1 0V1H4V.5zM16 14V5H0v9a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2zm-5.146-5.146-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 0 1 .708-.708L7.5 10.793l2.646-2.647a.5.5 0 0 1 .708.708z"/>
+			</svg>
+			<span>Live</span>
+		</div>
+		<div id="destinations-menu">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="menu-icon" viewBox="0 0 16 16">
+				<path d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A.5.5 0 0 1 10.5 16h-5a.5.5 0 0 1-.354-.854l1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.382a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.428-1.849Zm.894.448C7.111 2.02 7 2.569 7 3v4a.5.5 0 0 1-.276.447l-5.448 2.724a.5.5 0 0 0-.276.447v.792l5.418-.903a.5.5 0 0 1 .575.41l.5 3a.5.5 0 0 1-.14.437L6.708 15h2.586l-.647-.646a.5.5 0 0 1-.14-.436l.5-3a.5.5 0 0 1 .576-.411L15 11.41v-.792a.5.5 0 0 0-.276-.447L9.276 7.447A.5.5 0 0 1 9 7V3c0-.432-.11-.979-.322-1.401C8.458 1.159 8.213 1 8 1c-.213 0-.458.158-.678.599Z"/>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="menu-icon fill" viewBox="0 0 16 16">
+				<path d="M6.428 1.151C6.708.591 7.213 0 8 0s1.292.592 1.572 1.151C9.861 1.73 10 2.431 10 3v3.691l5.17 2.585a1.5 1.5 0 0 1 .83 1.342V12a.5.5 0 0 1-.582.493l-5.507-.918-.375 2.253 1.318 1.318A.5.5 0 0 1 10.5 16h-5a.5.5 0 0 1-.354-.854l1.319-1.318-.376-2.253-5.507.918A.5.5 0 0 1 0 12v-1.382a1.5 1.5 0 0 1 .83-1.342L6 6.691V3c0-.568.14-1.271.428-1.849Z"/>
+			</svg>
+			<span>Destinations</span>
+		</div>
+		<div id="campaigns-menu">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="menu-icon" viewBox="0 0 16 16">
+				<path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="menu-icon fill" viewBox="0 0 16 16">
+				<path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
+			</svg>
+			<span>Campaigns</span>
+		</div>
+		<div id="game-modes-menu">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="menu-icon" viewBox="0 0 16 16">
+				<path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+				<path d="M11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="menu-icon fill" viewBox="0 0 16 16">
+				<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-8 3a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+			</svg>
+			<span>Game Modes</span>
+		</div>
+		<div id="career-menu">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="menu-icon" viewBox="0 0 16 16">
+				<path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z"/>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="menu-icon fill" viewBox="0 0 16 16">
+				<path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+			</svg>
+			<span>Career</span>
+		</div>
+		<div id="store-menu">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="menu-icon" viewBox="0 0 16 16">
+				<path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+				</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="menu-icon fill" viewBox="0 0 16 16">
+				<path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+			</svg>
+			<span>Store</span>
+		</div>
+		<div id="options-menu">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="menu-icon" viewBox="0 0 16 16">
+				<path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
+				<path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
+			</svg>
+			<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="menu-icon fill" viewBox="0 0 16 16">
+				<path d="M9.405 1.05c-.413-1.4-2.397-1.4-2.81 0l-.1.34a1.464 1.464 0 0 1-2.105.872l-.31-.17c-1.283-.698-2.686.705-1.987 1.987l.169.311c.446.82.023 1.841-.872 2.105l-.34.1c-1.4.413-1.4 2.397 0 2.81l.34.1a1.464 1.464 0 0 1 .872 2.105l-.17.31c-.698 1.283.705 2.686 1.987 1.987l.311-.169a1.464 1.464 0 0 1 2.105.872l.1.34c.413 1.4 2.397 1.4 2.81 0l.1-.34a1.464 1.464 0 0 1 2.105-.872l.31.17c1.283.698 2.686-.705 1.987-1.987l-.169-.311a1.464 1.464 0 0 1 .872-2.105l.34-.1c1.4-.413 1.4-2.397 0-2.81l-.34-.1a1.464 1.464 0 0 1-.872-2.105l.17-.31c.698-1.283-.705-2.686-1.987-1.987l-.311.169a1.464 1.464 0 0 1-2.105-.872l-.1-.34zM8 10.93a2.929 2.929 0 1 1 0-5.86 2.929 2.929 0 0 1 0 5.858z"/>
+			</svg>
+			<span>Options</span>
+		</div>
+	</div>
+
+	<div class="content">
+		<div id="featured-page"></div>
+		<div id="live-page"></div>
+		<div id="destinations-page"></div>
+		<div id="campaigns-page"></div>
+		<div id="game-modes-page"></div>
+		<div id="career-page"></div>
+		<div id="store-page"></div>
+		<div id="options-page"></div>
+	</div>
+
+	<div class="footer">
+		<div class="keys"><span class="key">ENTER</span> SELECT </div>
+		<div class="mid"></div>
+		<div class="login"></div>
+	</div>
+
+	<div id="hidden">
+		<div id="page_up" class="page_button">
+			<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="icon" viewBox="0 0 16 16">
+				<path fill-rule="evenodd" d="M12 8a.5.5 0 0 1-.5.5H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5a.5.5 0 0 1 .5.5z"/>
+			</svg>
+			<div class="key">Page<br>Down</div>
+		</div>
+		<div id="page_down" class="page_button">
+			<div class="key">Page<br>Down</div>
+			<svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="icon" viewBox="0 0 16 16">
+				<path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"/>
+			</svg>
+		</div>
+	</div>
+
+<script>
 "use strict";
 
 const app = {
 	menus: null,
-	menu_idx: 0
+	menu_idx: 0,
+	page_down: null,
+	page_up: null,
+	menu_margin: 0
 }
 
-app.menus = [ "featured", "live", "destinations", "campaigns", "game-modes", "career", "store" ]
+init()
 
-window.addEventListener('keydown', window_on_keydown)
+function init() {
 
-const elem = document.querySelector('.cover')
-const to =  { backgroundSize: '130%' }
-const options = { duration: 20000 }
-animateTo(elem, to, options)
+	app.menus = [ 'featured', 'live', 'destinations', 'campaigns', 'game-modes', 'career', 'store', 'options' ]
+	app.page_down = document.getElementById('page_down')
+	app.page_up = document.getElementById('page_up')
+
+	document.getElementById(`${app.menus[app.menu_idx]}-menu`).classList.add('active')
+	place_page_buttons()
+
+	const elem = document.querySelector('.cover')
+	const to =  { backgroundSize: '130%' }
+	const options = { duration: 20000 }
+	// animateTo(elem, to, options)
+
+	window.addEventListener('keydown', window_on_keydown)
+}
+
 
 function window_on_keydown(evt) {
 
-	if(evt.key === "PageDown") {
-		if(app.menu_idx === app.menus.length - 1) return;
-		document.getElementById(app.menus[app.menu_idx]).classList.remove('active')
-		app.menu_idx++;
-		document.getElementById(app.menus[app.menu_idx]).classList.add('active')
+	if(evt.key === 'PageDown' || evt.key === 'PageUp') {
+		menu_action(evt.key)
 	}
-	else if(evt.key === "PageUp") {
-		if(app.menu_idx === 0) return;
-		document.getElementById(app.menus[app.menu_idx]).classList.remove('active')
-		app.menu_idx--;
-		document.getElementById(app.menus[app.menu_idx]).classList.add('active')
-	}
-	else if(evt.key === "ArrowRight") {
+	else if(evt.key === 'ArrowRight') {
 
 	}
-	else if(evt.key === "ArrowLeft") {
+	else if(evt.key === 'ArrowLeft') {
 
 	}
 }
+
+
+function menu_action(key) {
+
+	if(key !== 'PageDown' && key !== 'PageUp') return
+	if(key === 'PageDown' && app.menu_idx === app.menus.length - 1) return
+	if(key === 'PageUp' && app.menu_idx === 0) return
+
+	const menu_item_width = 18.2
+	const page_padding_left = 4.2
+
+	document.getElementById(`${app.menus[app.menu_idx]}-menu`).classList.remove('active')
+	if(key === 'PageDown') {
+		app.menu_idx++
+	}
+	else {
+		app.menu_idx--
+	}
+	document.getElementById(`${app.menus[app.menu_idx]}-menu`).classList.add('active')
+
+	const offset = page_padding_left + app.menu_idx * menu_item_width + app.menu_margin
+
+	let threshold = 0
+	let needs_adjusting = false
+
+	if(key === 'PageDown') {
+		threshold = 100 - 18.2 - 4.2 - 4.2
+		if(app.menu_idx === app.menus.length - 1) threshold += 4.2
+		needs_adjusting = offset > threshold
+	}
+	else {
+		threshold = 4.2 + 4.2
+		if(app.menu_idx === 0) threshold -= 4.2
+		needs_adjusting = offset < threshold
+	}
+
+	if(needs_adjusting) {
+		app.menu_margin += threshold - offset
+		document.querySelector('.top').style.marginLeft = `${app.menu_margin}vw`
+		document.querySelector('.menu').style.marginLeft = `${app.menu_margin}vw`
+	}
+
+	place_page_buttons()
+}
+
+
+function place_page_buttons() {
+
+	if(app.menu_idx === 0) {
+		const after = document.querySelector(`.top > div:nth-child(${app.menu_idx+1+1})`)
+		after.style.justifyContent = 'flex-start'
+		after.append(app.page_down)
+		const hidden = document.getElementById('hidden')
+		hidden.append(app.page_up)
+	}
+	else if(app.menu_idx === app.menus.length - 1) {
+		const before = document.querySelector(`.top > div:nth-child(${app.menu_idx+1-1})`)
+		before.style.justifyContent = 'flex-end'
+		before.append(app.page_up)
+		const hidden = document.getElementById('hidden')
+		hidden.append(app.page_down)
+	}
+	else {
+		const before = document.querySelector(`.top > div:nth-child(${app.menu_idx+1-1})`)
+		before.style.justifyContent = 'flex-end'
+		before.append(app.page_up)
+		const after = document.querySelector(`.top > div:nth-child(${app.menu_idx+1+1})`)
+		after.style.justifyContent = 'flex-start'
+		after.append(app.page_down)
+	}
+}
+
 
 function animateTo(element, to, options) {
 	const anim = element.animate(to, { ...options, fill: 'both' });
